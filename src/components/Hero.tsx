@@ -3,8 +3,6 @@ import { site } from "@/data/site";
 import { GithubMark, LinkedinMark } from "./BrandIcons";
 
 const sqlLines = [
-  "-- Illustrative snippet only.",
-  "-- Replace with the actual query from your project.",
   "WITH ranked AS (",
   "  SELECT *,",
   "    ROW_NUMBER() OVER (",
