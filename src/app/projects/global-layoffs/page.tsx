@@ -7,6 +7,7 @@ import { GithubMark } from "@/components/BrandIcons";
 import { StatusBadge } from "@/components/StatusBadge";
 import { Kpi } from "@/components/Kpi";
 import { YearBars } from "@/components/YearBars";
+import { ImageGallery } from "@/components/ImageGallery";
 import { projects, globalLayoffsCaseStudy } from "@/data/projects";
 import { site } from "@/data/site";
 
@@ -62,7 +63,7 @@ export default function GlobalLayoffsPage() {
         {/* Data & cleaning */}
         <section className="mt-16">
           <h2 className="font-display text-2xl text-text">
-            Data quality &amp; cleaning
+            Data cleaning &amp; quality checks
           </h2>
           <p className="mt-3 text-text-secondary">
             Before analysis, the raw dataset was copied into a staging table
@@ -104,6 +105,18 @@ export default function GlobalLayoffsPage() {
           </div>
         </section>
 
+        {/* Dashboard */}
+        <section className="mt-16">
+          <h2 className="font-display text-2xl text-text">Dashboard</h2>
+          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-text-secondary">
+            Findings were also brought together in an interactive Excel
+            dashboard with slicers for location, funding stage and date.
+          </p>
+          <div className="mt-8">
+            <ImageGallery images={study.dashboardScreenshots} />
+          </div>
+        </section>
+
         {/* Key findings */}
         <section className="mt-16">
           <h2 className="font-display text-2xl text-text">Key findings</h2>
@@ -141,7 +154,9 @@ export default function GlobalLayoffsPage() {
 
         {/* Tools */}
         <section className="mt-16">
-          <h2 className="font-display text-2xl text-text">Tools</h2>
+          <h2 className="font-display text-2xl text-text">
+            Tools &amp; technologies
+          </h2>
           <div className="mt-4 flex flex-wrap gap-2">
             {project.tools.map((tool) => (
               <span

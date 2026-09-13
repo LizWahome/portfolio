@@ -3,17 +3,18 @@ import { site } from "@/data/site";
 import { GithubMark, LinkedinMark } from "./BrandIcons";
 
 const sqlLines = [
-  "WITH duplicate_rows_cte AS (",
+  "-- Illustrative snippet only.",
+  "-- Replace with the actual query from your project.",
+  "WITH ranked AS (",
   "  SELECT *,",
-  "    ROW_NUMBER() OVER(",
-  "      PARTITION BY company, location, industry,", 
-  "         total_laid_off, percentage_laid_off, `date`,", 
-  "        stage, country, funds_raised_millions) AS row_num",
+  "    ROW_NUMBER() OVER (",
+  "      PARTITION BY company, location,",
+  "        industry, total_laid_off, date",
+  "      ORDER BY company",
+  "    ) AS row_num",
   "  FROM layoffs_staging",
   ")",
-  "SELECT *",
-  "FROM duplicate_rows_cte",
-  "WHERE row_num > 1;",
+  "SELECT * FROM ranked WHERE row_num = 1;",
 ];
 
 export function Hero() {
